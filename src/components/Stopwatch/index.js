@@ -5,6 +5,10 @@ import './index.css'
 class Stopwatch extends Component {
   state = {timeInSeconds: 0, isWatchRunning: false}
 
+  componentWillUnmount() {
+    clearInterval(this.startWatchInterval)
+  }
+
   onStopWatch = () => {
     clearInterval(this.startWatchInterval)
     this.setState({isWatchRunning: false})
@@ -26,12 +30,14 @@ class Stopwatch extends Component {
 
   renderStopWatch = () => {
     const {timeInSeconds, isWatchRunning} = this.state
-
-    const seconds = Math.floor(timeInSeconds % 60)
-    const minutes = Math.floor(timeInSeconds / 60)
-    const stringifySeconds = seconds > 9 ? seconds : `0${seconds}`
-    const stringifyMinutes = minutes > 9 ? minutes : `0${minutes}`
-    const time = `${stringifyMinutes}:${stringifySeconds}`
+    const getTime = () => {
+      const seconds = Math.floor(timeInSeconds % 60)
+      const minutes = Math.floor(timeInSeconds / 60)
+      const stringifySeconds = seconds > 9 ? seconds : `0${seconds}`
+      const stringifyMinutes = minutes > 9 ? minutes : `0${minutes}`
+      return `${stringifyMinutes}:${stringifySeconds}`
+    }
+    const time = getTime()
 
     return (
       <div className="watch-card">
@@ -43,11 +49,11 @@ class Stopwatch extends Component {
           />
           <p className="watch-title">Timer</p>
         </div>
-        <h3 className="watch-time">{time}</h3>
+        <h1 className="watch-time">{time}</h1>
         <div className="watch-controls">
           <button
             type="button"
-            className="button-start"
+            className="button start"
             onClick={this.onStartWatch}
             disabled={isWatchRunning}
           >
@@ -55,14 +61,14 @@ class Stopwatch extends Component {
           </button>
           <button
             type="button"
-            className="button-stop"
+            className="button stop"
             onClick={this.onStopWatch}
           >
             Stop
           </button>
           <button
             type="button"
-            className="button-reset"
+            className="button reset"
             onClick={this.onResetWatch}
           >
             Reset
@@ -75,7 +81,7 @@ class Stopwatch extends Component {
   render() {
     return (
       <div className="app-container">
-        <div className="app-section">
+        <div className="stopwatch-section">
           <h2 className="app-title">Stopwatch</h2>
           {this.renderStopWatch()}
         </div>

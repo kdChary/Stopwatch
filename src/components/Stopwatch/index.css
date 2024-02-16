@@ -1,1 +1,147 @@
-/* Write CSS here */
+.app-container {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/stopwatch-sm-bg.png');
+  background-size: cover;
+  height: 100vh;
+}
+@media (min-width: 768px) {
+  .app-container {
+    background-image: url('https://assets.ccbp.in/frontend/react-js/stopwatch-lg-bg.png');
+    background-position: center;
+    display: flex;
+    /* align-items: flex-start; */
+    padding-top: 34px;
+    padding-left: 34px;
+  }
+}
+
+.stopwatch-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 11px;
+}
+
+.app-title {
+  color: #333333;
+  font-size: 29px;
+}
+@media (min-width: 768px) {
+  .app-title {
+    font-size: 43px;
+  }
+}
+@media (min-width: 992px) {
+  .app-title {
+    font-size: 57px;
+  }
+}
+.watch-card {
+  border: none;
+  border-radius: 13px;
+  box-shadow: 0 4px 16px #b0b2e9;
+  padding: 13px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #ffffff50;
+}
+@media (min-width: 992px) {
+  .watch-card {
+    width: 510px;
+    height: 243px;
+  }
+}
+
+.watch-body {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.watch-image {
+  margin-right: 3px;
+}
+.watch-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333333;
+}
+@media (min-width: 768px) {
+  .watch-image {
+    width: 21px;
+    height: 21px;
+  }
+  .watch-title {
+    font-size: 19px;
+  }
+}
+
+@media (min-width: 992px) {
+  .watch-image {
+    width: 31px;
+    height: 31px;
+  }
+  .watch-title {
+    font-size: 27px;
+  }
+}
+
+.watch-time {
+  font-size: 34px;
+  color: #333333;
+  margin-top: 0;
+}
+@media (min-width: 768px) {
+  .watch-time {
+    font-size: 44px;
+  }
+}
+@media (min-width: 992px) {
+  .watch-time {
+    font-size: 54px;
+  }
+}
+
+.watch-controls {
+  display: flex;
+  justify-content: space-evenly;
+  width: 90%;
+}
+.button {
+  padding: 5px 15px;
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  .watch-controls {
+    width: 75%;
+  }
+}
+@media (min-width: 992px) {
+  .watch-controls {
+    margin-bottom: 23px;
+  }
+  .button {
+    width: 23%;
+    /* height: 24px; */
+    font-size: 19px;
+  }
+}
+
+.start {
+  background-color: #1db05f;
+}
+.stop {
+  background-color: #ef0d36;
+}
+.reset {
+  background-color: #eaa800;
+}
